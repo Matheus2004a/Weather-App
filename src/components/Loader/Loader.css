@@ -1,0 +1,15 @@
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 3px solid #dbdcef;
+    border-right-color: #474bff;
+    margin-top: 1rem;
+    animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(1turn);
+    }
+}
