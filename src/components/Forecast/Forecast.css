@@ -1,0 +1,76 @@
+.card {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    background: var(--bg-color-card);
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.card .content {
+    display: grid;
+    gap: 2rem;
+}
+
+.card .content figure:first-child:not(section figure) {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.card .content figure:first-child h1:not(section figure) {
+    font-size: 4rem;
+}
+
+.card .content article {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.card .section-location,
+.card .location,
+.card .section-details,
+.section-days {
+    display: flex;
+    align-items: center;
+}
+
+.card .location,
+.card .section-details figure {
+    gap: .5rem;
+}
+
+.card .section-details :is(figure, figcaption) {
+    display: grid;
+    place-items: center;
+}
+
+.card .section-location,
+.card .section-details {
+    justify-content: space-between;
+}
+
+.section-days :is(picture, figure) {
+    display: grid;
+    place-items: center;
+}
+
+.section-days picture {
+    background: var(--text-white);
+    color: var(--bg-color-card);
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+.section-days img {
+    width: 3rem;
+}
