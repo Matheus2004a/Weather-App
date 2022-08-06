@@ -12,7 +12,7 @@
 
 .card .content {
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .card .content figure:first-child:not(section figure) {
@@ -26,7 +26,6 @@
 }
 
 .card .content article {
-    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,4 +72,25 @@
 
 .section-days img {
     width: 3rem;
+}
+
+.card article:last-child figure {
+    display: grid;
+    place-items: center;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-align: center;
+    gap: .5rem;
+    background: var(--bg-color-card);
+    color: var(--text-white);
+}
+
+.card article:last-child img {
+    width: 2rem;
+}
+
+.card article:last-child section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
