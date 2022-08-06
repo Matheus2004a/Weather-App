@@ -1,16 +1,31 @@
 .form-weather {
+    width: 30%;
     display: grid;
+    justify-content: center;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .form-weather fieldset {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
 }
 
 .form-weather input {
+    width: 35vw;
+    max-width: 100%;
+    border: none;
     font-size: 1rem;
-    border: 1px solid #778899;
-    padding: 10px 1rem;
+    padding: 10px 2.5rem 10px 1rem;
+}
+
+.form-weather fieldset svg {
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
 }
 
 .form-weather button {

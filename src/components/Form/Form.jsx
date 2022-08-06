@@ -1,26 +1,45 @@
 import { useState } from "react"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
+import { FiSearch } from "react-icons/fi"
 import Loader from "../Loader/Loader"
-
-import { key } from "../../services/api"
+import Forecast from "../Forecast/Forecast"
+import { BASE_URL, BASE_URL_DAY, KEY, UNIT_TEMPERATURE, LANG } from "../../services/api"
 
 import "./Form.css"
 
 const Form = () => {
     const [loader, setLoader] = useState(false)
+    const [forecast, setForecast] = useState(false)
+    const [location, setLocation] = useState("")
+    const [data, setData] = useState([])
+    const [days, setDays] = useState([])
 
-    async function handleApi(local) {
-        if (local === "") {
+    const getDataForAWeek = async () => {
+        const api = `${BASE_URL_DAY}q=${location}&cnt=${7}&${UNIT_TEMPERATURE}&${LANG}&appid=${KEY}`
+
+        const response = await fetch(api).then(request => request.json()).then(data => {
+            return data
+        }).catch(error => {
+            return error
+        })
+
+        setDays([response])
+    }
+
+    const handleApi = async () => {
+        if (location === "") {
             return toast.warning("Digite o nome de um local", {
                 theme: "colored"
             })
         }
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${local}&appid=${key}`
+        const api = `${BASE_URL}q=${location}&${UNIT_TEMPERATURE}&${LANG}&appid=${KEY}`
+
         setLoader(true)
 
-        const response = await fetch(url).then(request => request.json()).then(data => {
+        const response = await fetch(api).then(request => request.json()).then(data => {
+            setLocation("")
             return data
         }).catch(error => {
             return error
@@ -34,27 +53,39 @@ const Form = () => {
             })
         }
 
-        console.log(response)
+        setForecast(true)
+        setData([response])
+        
+        getDataForAWeek()
     }
 
-    const searchCity = e => {
+    const searchLocation = e => {
         e.preventDefault()
-        const input = e.target[1].value
-        handleApi(input)
+        handleApi()
     }
 
     return (
         <>
             <ToastContainer />
 
-            <form className="form-weather" onSubmit={(e) => searchCity(e)}>
+            <form className="form-weather" onSubmit={e => searchLocation(e)}>
                 <fieldset>
-                    <input type="text" placeholder="Digite o nome da sua cidade" autoFocus={true} />
+                    <input
+                        aria-label="location"
+                        type="text"
+                        placeholder="Digite o nome da sua cidade"
+                        autoFocus={true}
+                        value={location}
+                        onChange={e => setLocation(e.target.value)}
+                    />
+                    <FiSearch />
                 </fieldset>
-                <button type="submit">Pesquisar</button>
+                <button type="submit" hidden></button>
             </form>
 
             {loader && <Loader />}
+
+            {forecast && <Forecast details={data} daysTemp={days} />}
         </>
     )
 }
