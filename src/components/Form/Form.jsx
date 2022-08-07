@@ -29,7 +29,7 @@ const Form = () => {
 
     const handleApi = async () => {
         if (location === "") {
-            return toast.warning("Digite o nome de um local", {
+            return toast.warning("Digite o nome de uma cidade", {
                 theme: "colored"
             })
         }
@@ -48,7 +48,7 @@ const Form = () => {
         setLoader(false)
 
         if (response.cod === "404") {
-            return toast.error(response.message = "Local não encontrado", {
+            return toast.error(response.message = "Cidade não encontrada", {
                 theme: "colored"
             })
         }
