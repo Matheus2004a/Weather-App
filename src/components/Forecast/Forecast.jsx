@@ -4,7 +4,7 @@ import { FiMapPin, FiWind, FiDroplet, FiCloudLightning } from "react-icons/fi"
 import "./Forecast.css"
 
 const Forecast = (props) => {
-    const [dates, setDates] = useState({})
+    const [dates, setDates] = useState([{}])
 
     const formatHours = date => {
         const hours = date.getHours()
@@ -33,7 +33,7 @@ const Forecast = (props) => {
 
     const getDateByDay = dates => {
         const date = new Date(dates)
-        const dayAndMonth = `0${date.getDay()}/0${date.getMonth() + 1}`
+        const dayAndMonth = `0${date.getDate()}/0${date.getMonth() + 1}`
         return dayAndMonth
     }
 
