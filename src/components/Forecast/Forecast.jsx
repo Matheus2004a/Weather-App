@@ -4,14 +4,15 @@ import { FiMapPin, FiWind, FiDroplet, FiCloudLightning } from "react-icons/fi"
 import "./Forecast.css"
 
 const Forecast = (props) => {
-    const [dates, setDates] = useState([{}])
+    const [dates, setDates] = useState({})
 
     const formatHours = date => {
         const hours = date.getHours()
         const minutes = date.getMinutes()
 
+        const hoursFormatted = hours < 10 ? `0${hours}` : hours
         const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes
-        const hoursAndMin = `${hours}:${minutesFormatted}`
+        const hoursAndMin = `${hoursFormatted}:${minutesFormatted}`
         return hoursAndMin
     }
 
