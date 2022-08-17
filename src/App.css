@@ -17,12 +17,37 @@
 
 .App {
   display: grid;
-  justify-items: center;
-  align-content: center;
-  height: 100vh;
+  place-items: center;
+  align-items: center;
   background: var(--bg-color);
+  padding: 5% 0;
 }
 
 header {
   color: var(--text-white);
+}
+
+@media (max-width: 880px) {
+  .App {
+    padding: 10% 0;
+  }
+
+  .form-weather input {
+    width: 83vw;
+  }
+
+  .card .section-details {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .card article:last-child section {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+  }
+
+  .card article:last-child figure {
+    justify-content: center;
+  }
 }

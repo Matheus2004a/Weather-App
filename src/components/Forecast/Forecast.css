@@ -1,7 +1,4 @@
 .card {
-    display: grid;
-    justify-content: center;
-    align-items: center;
     color: var(--text-white);
     background: var(--bg-color-card);
     margin-top: 1rem;
