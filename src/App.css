@@ -18,7 +18,7 @@
 .App {
   display: grid;
   place-items: center;
-  align-items: center;
+  align-content: center;
   height: 100vh;
   background: var(--bg-color);
   padding: 5% 0;

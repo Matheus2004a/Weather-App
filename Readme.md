@@ -1,5 +1,7 @@
 # Weather App 
 
+<img src="./design/weather.png">
+
 Esta é uma aplicação que permite visualizarmos dados climáticos em tempo real de acordo com o nome do local pesquisado. 
 A api utilizada para consultar os dados climáticos é a [Openweathermap.](https://openweathermap.org/)
 
