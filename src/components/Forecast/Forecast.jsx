@@ -34,7 +34,7 @@ const Forecast = (props) => {
 
     const getDateByDay = dates => {
         const date = new Date(dates)
-        const dayFormatted = date.getDate() < 10 ? `0${date.getDate()}/0${date.getMonth() + 1}` : `${date.getDate()}/0${date.getMonth() + 1}`
+        const dayFormatted = `${date.getDate()}/${date.getMonth() + 1}`
         return dayFormatted
     }
 
